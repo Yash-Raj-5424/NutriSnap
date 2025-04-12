@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pick Your Workout Time</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: lavender;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .option-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .option {
+      cursor: pointer;
+      border: 3px solid transparent;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.3s;
+      width: 250px;
+      background-color: white;
+    }
+    .option:hover {
+      transform: scale(1.05);
+      border-color: #00b4d8;
+    }
+    .option img {
+      width: 100%;
+      height: 200px; /* Same height for both images */
+      object-fit: cover; /* Maintain aspect ratio while filling the space */
+    }
+    .option-label {
+      background: #0077b6;
+      color: white;
+      padding: 0.5rem;
+      font-weight: bold;
+    }
+    .exercise-list {
+      margin-top: 2rem;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>When Do You Exercise?</h1>
+
+  <div class="option-container"> 
+    <div class="option" onclick="showBreathing('morning')">
+      <img src="https://wallpaperaccess.com/full/10049205.jpg" alt="Morning Exercise">
+      <div class="option-label">Morning</div>
+    </div>
+
+    <div class="option" onclick="showBreathing('evening')">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Evening Exercise">
+      <div class="option-label">Evening</div>
+    </div>
+  </div>
+
+  <div class="exercise-list" id="exerciseList" style="display:none;"></div>
+
+  <script>
+    function showBreathing(time) {
+      const exerciseList = document.getElementById('exerciseList');
+      const label = time === 'morning' ? "🌞 Morning" : "🌇 Evening";
+
+      const content = `
+        <h2>${label} Breathing Exercise</h2>
+        <p>Try doing 5–10 minutes of deep breathing to relax your body and mind.</p>
+        <ul>
+          <li>Inhale deeply through your nose for 4 seconds</li>
+          <li>Hold your breath for 7 seconds</li>
+          <li>Exhale slowly through your mouth for 8 seconds</li>
+          <li>Repeat for 5–10 rounds</li>
+        </ul>
+      `;
+
+      exerciseList.innerHTML = content;
+      exerciseList.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

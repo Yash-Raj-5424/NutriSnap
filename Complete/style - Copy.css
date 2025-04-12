@@ -1,0 +1,14 @@
+/* style.css */
+.hidden {
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }
+  
+  .btn-active {
+    background-color: #4F46E5;
+    color: white;
+  }
+  
